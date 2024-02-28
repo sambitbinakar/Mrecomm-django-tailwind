@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+<body>
+    {% block content %}
+    <nav class="mx-6 p-2 h-16 flex justify-between border ">
+        <div class="logo">
+            <img src="{% static 'image/logo.png' %}" alt="" class="h-12">
+        </div>
+        <div class="search rounded-xl bg-slate-300 h-10 w-7/12 px-4">
+            <i class="ri-search-line "></i>
+            <input type="text"class="border-none bg-transparent w-11/12 h-full active:outline-none " placeholder="search item's here....">
+        </div>
+        <div class="profile font-semibold text-lg m-3">
+            <a href="#">LogIn</a>
+            <a href="#" class="hidden">profile</a>
+        </div>
+        <div class="cart flex justify-items-center items-center rounded-lg bg-sky-600 px-5 mr-4 ">
+            <i class="ri-shopping-cart-2-fill"></i>
+            <h3 class="font-semibold">My Cart</h3>
+        </div>
+    </nav>
+    {% endblock content %}
+</body>
+</html>

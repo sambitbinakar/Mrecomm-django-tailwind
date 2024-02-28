@@ -1,0 +1,36 @@
+{% extends "navbar.html" %}
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    {% tailwind_css %}
+</head>
+<body>
+    {% block content %}{% endblock content %}
+    <section>
+        <div class="relative">
+            <ul id="slider">
+                <li class="h-64 "><img src="{% static 'image/slider/pic_el.png' %}" alt="" class="h-full w-full object-cover "></li>
+                <li class="h-64 hidden"><img src="{% static 'image/slider/laptop.jpeg' %}" alt="" class="h-full w-full object-cover"></li>
+                <li class="h-64 hidden"><img src="{% static 'image/slider/pic_shoes.png' %}" alt="" class="h-full w-full object-cover"></li>
+                <li class="h-64 hidden"><img src="{% static 'image/slider/electronic.jpg' %}" alt="" class="h-full w-full object-cover"></li>
+                <li class="h-64 hidden"><img src="{% static 'image/slider/kids.jpeg' %}" alt="" class="h-full w-full object-cover"></li>
+            </ul>
+            
+            <div class="absolute top-0 w-full left-0 flex px-5 h-full">
+                <div class="my-auto w-full h-full flex justify-between ">
+                    <button onclick="prev()" class=" p-1 rounded-full bg-opacity-75 shadow-lg "><i class="ri-arrow-left-circle-line"></i></button>
+                    <button onclick="next()" class=" p-1 rounded-full bg-opacity-75 shadow-lg "><i class="ri-arrow-right-circle-line "></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
