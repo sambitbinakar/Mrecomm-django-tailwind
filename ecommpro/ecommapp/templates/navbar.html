@@ -10,24 +10,22 @@
     {% tailwind_css %}
 </head>
 <body>
-    {% block navbar %}
-    <nav class=" p-2 h-16 flex justify-between border mx-12">
+    <nav class="container w-[95%] ml-10 h-20 flex border-b items-center justify-around bg-white">
         <div class="logo">
-            <img src="{% static 'image/logo.png' %}" alt="" class="h-12">
+            <img src="{% static 'image/logo.png' %}" alt="" class="h-10">
         </div>
-        <div class="search rounded-xl bg-slate-300 h-10 w-7/12 px-4 flex ">
-            <i class="ri-search-line mt-2"></i>
-            <input type="text"class="border-none bg-transparent w-full h-full border-transparent focus:outline-0" placeholder="search item's here....">
+        <div class="search  h-10 w-[70%] flex relative items-center p-3 ">
+            <input type="text" class=" outline-none border-none block focus:ring-blue-500 focus:border-blue-500 w-full rounded-xl  bg-gray-300 ml-5" placeholder="search item's here....">
+            <i class="ri-search-line absolute ml-2 right-10 font-bold"></i>
         </div>
-        <div class="profile font-semibold text-lg m-3">
-            <a href="#">LogIn</a>
-            <a href="#" class="hidden">profile</a>
+        <div class="profile font-semibold text-lg m-3 flex">
+            <a href="#">LogIn</a>/
+            <a href="{% url "register" %}" class="">Register</a>
         </div>
-        <div class="cart flex justify-items-center items-center rounded-lg bg-blue-300 px-5 mr-4 text-black cursor-pointer">
+        <div class="cart flex flex-shrink justify-items-center items-center rounded-lg bg-blue-300 px-5 py-3 text-black cursor-pointer">
             <i class="ri-shopping-cart-2-fill"></i>
             <h3 class="font-semibold ">My Cart</h3>
         </div>
     </nav>
-    {% endblock navbar %}
 </body>
 </html>

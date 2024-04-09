@@ -1,5 +1,6 @@
 {% load static tailwind_tags %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +16,11 @@
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"/>
     {% tailwind_css %}
 </head>
-<body>
-<div
+<body class=" bg-zinc-100">
+<div class=" container w-[85%] ml-28">
+  <div
   id="carouselExampleIndicators"
-  class=" relative h-2/5 cursor-pointer mt-5"
+  class=" relative h-2/5 cursor-pointer mt-5 "
   data-te-carousel-init
   data-te-ride="carousel">
   <!--Carousel indicators-->
@@ -61,7 +63,7 @@
 
   <!--Carousel items-->
   <div
-    class="relative w-full h-64 overflow-hidden after:clear-both after:block after:content-['']">
+    class="relative w-full h-52 overflow-hidden after:clear-both after:block after:content-[''] my-10 rounded-xl">
     <!--First image-->
     <div
       class="relative float-left -mr-[100%] w-full h-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
@@ -161,31 +163,41 @@
     >
   </button>
 </div>
-<div id="catagories_sec" class=" flex justify-around my-10 mx-8 flex-shrink-1">
-  <div id="catagories">
-    <img src="{% static 'image/catagories/appliances.png' %}" alt="">
-    <a href="#"class="text-black text-center my-8 font-semibold">Appliances</a>
+<!-- Catagories -->
+<div id="catagories_sec" class=" w-full grid grid-cols-3 gap-9 bg-transparent">
+  <a href="#" id="catagories" class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+    <img src="{% static 'image/catagories/appliances.png' %}" alt="" class=" h-20 w-20">
+    <h3 class="text-black font-semibold">Appliances</h3>
+  </a>
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+    <img src="{% static 'image/catagories/electronicata.png' %}" alt="" class=" h-20 w-20">
+    <h3 class="text-black font-semibold">Electronics</h3>
+  </a>
+ <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg" >
+    <img src="{% static 'image/catagories/fashion.png' %}" alt="" class=" h-20 w-20">
+    <h3 class="text-black font-semibold">Fashions</h3>
+  </a>
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+   <img src="{% static 'image/catagories/grocery.png' %}" alt="" class=" h-16 w-20">
+   <h3 class="text-black font-semibold">Grocery</h3>
+  </a>
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+    <img src="{% static 'image/catagories/home_fun.png' %}" alt=""class=" h-20 w-20">
+    <h3 class="text-black font-semibold">Home & Funitures</h3>
+  </a>
+  <a href="#" id="catagories"class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+    <img src="{% static 'image/catagories/mobile.png' %}" alt="" class=" h-14 w-20">
+    <h3 class="text-black font-semibold">Mobile</h3>
+  </a>
+</div>
+<div class="">
+  <div class="">
+    
   </div>
-  <div id="catagories">
-    <img src="{% static 'image/catagories/electronicata.png' %}" alt="">
-    <a href="#"class="text-black text-center my-8 font-semibold">Electronics</a>
-  </div>
-  <div id="catagories" class="">
-    <img src="{% static 'image/catagories/fashion.png' %}" alt="">
-    <a href="#"class="text-black text-center my-8 font-semibold">Fashions</a>
-  </div>
-  <div id="catagories">
-    <img src="{% static 'image/catagories/grocery.png' %}" alt="">
-    <a href="#"class="text-black text-center my-8 font-semibold">Grocery</a>
-  </div>
-  <div id="catagories">
-    <img src="{% static 'image/catagories/home_fun.png' %}" alt="">
-    <a href="#"class="text-black text-center my-8 font-semibold">Home & Funitures</a>
-  </div>
-  <div id="catagories">
-    <img src="{% static 'image/catagories/mobile.png' %}" alt="" class="h-20 w-16 object-cover">
-    <a href="#" class="text-black text-center my-8 font-semibold">Mobile</a>
-  </div>
+  <div class=""></div>
+  <div class=""></div>
+  <div class=""></div>
+</div>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>

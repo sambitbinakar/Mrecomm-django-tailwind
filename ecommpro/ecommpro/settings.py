@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +131,29 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Ecomm-Admin",
+    "site_brand": "Mr-Ecomm",
+    "site_logo": "image/whitelogo.png",
+    "site_logo_classes": "img-circle",
+    "site_icon": "/image/whitelogo.png",
+    "welcome_sign": "Welcome to the MrEcomm",
+    "search_model": ["auth.User", "auth.Group","ecommapp.products"],
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+        {"model":"ecommapp.products"},
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app":"auth"}
+    ],
+}
