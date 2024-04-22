@@ -6,13 +6,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% tailwind_css %}
 </head>
 <body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit"> Submit</button>
-    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="bg-green-200 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
+    <div class="flex justify-center items-center h-screen">
+        <img src="{% static 'image/login.png' %}" alt="" class="h-[500px]">
+        <form method="POST" class=" flex flex-col shadow-xl p-10 bg-gray-100 ">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Full name</label>
+                <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" class=" w-[300px] rounded-lg" >
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900"> password</label>
+                <input type="password" name="password" autocomplete="current-password" required id="id_password"class=" w-[300px] rounded-lg">
+                <!-- {{ form.password }} -->
+            </div>
+            <button type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-32 ">
+                Login Here</button>
+            <div class="mt-4  text-lg font-medium text-gray-900">Don't have account ?<a href="{% url 'register' %}" class="text-blue-600 hover:underline">register Here</a></div>
+        </form>
+    </div>
 </body>
 </html>

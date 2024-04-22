@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-control{
+    width: 350px;
+    border-radius: 15px;
+}
+

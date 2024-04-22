@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
@@ -18,6 +18,14 @@
 </head>
 <body class=" bg-zinc-100">
 <div class=" container w-[85%] ml-28">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="bg-green-200 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
+  
   <div
   id="carouselExampleIndicators"
   class=" relative h-2/5 cursor-pointer mt-5 "
@@ -164,40 +172,43 @@
   </button>
 </div>
 <!-- Catagories -->
-<div id="catagories_sec" class=" w-full grid grid-cols-3 gap-9 bg-transparent">
-  <a href="#" id="catagories" class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+<div id="catagories_sec" class=" w-full grid grid-cols-4 gap-9 bg-transparent">
+  <a href="#" id="catagories" class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
     <img src="{% static 'image/catagories/appliances.png' %}" alt="" class=" h-20 w-20">
     <h3 class="text-black font-semibold">Appliances</h3>
   </a>
-  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
     <img src="{% static 'image/catagories/electronicata.png' %}" alt="" class=" h-20 w-20">
     <h3 class="text-black font-semibold">Electronics</h3>
   </a>
- <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg" >
+ <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105" >
     <img src="{% static 'image/catagories/fashion.png' %}" alt="" class=" h-20 w-20">
     <h3 class="text-black font-semibold">Fashions</h3>
   </a>
-  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
    <img src="{% static 'image/catagories/grocery.png' %}" alt="" class=" h-16 w-20">
    <h3 class="text-black font-semibold">Grocery</h3>
   </a>
-  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+  <a href="#" id="catagories"class=" flex  shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
     <img src="{% static 'image/catagories/home_fun.png' %}" alt=""class=" h-20 w-20">
     <h3 class="text-black font-semibold">Home & Funitures</h3>
   </a>
-  <a href="#" id="catagories"class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg">
+  <a href="#" id="catagories"class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
     <img src="{% static 'image/catagories/mobile.png' %}" alt="" class=" h-14 w-20">
     <h3 class="text-black font-semibold">Mobile</h3>
   </a>
+  <a href="#" id="catagories"class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
+    <img src="{% static 'image/catagories/watches.png' %}" alt="" class=" h-14 w-20 object-contain">
+    <h3 class="text-black font-semibold">Watches</h3>
+  </a>
+  <a href="#" id="catagories"class=" flex shadow-lg h-20 items-center gap-8 px-5 rounded-lg hover:scale-105">
+    <img src="{% static 'image/catagories/smart.png' %}" alt="" class=" h-14 w-20 object-cover">
+    <h3 class="text-black font-semibold">Smart Devices</h3>
+  </a>
 </div>
+<!-- feature brands -->
 <div class="">
-  <div class="">
-    
-  </div>
-  <div class=""></div>
-  <div class=""></div>
-  <div class=""></div>
-</div>
+  <h1>Feature brands</h1>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>

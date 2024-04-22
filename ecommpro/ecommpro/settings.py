@@ -157,3 +157,7 @@ JAZZMIN_SETTINGS = {
         {"app":"auth"}
     ],
 }
+
+# AUTH_USER_MODEL = 'ecommapp.User'
+LOGIN_REDIRECT_URL='base'
+LOGOUT_REDIRECT_URL="login"

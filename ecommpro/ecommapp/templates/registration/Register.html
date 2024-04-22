@@ -1,18 +1,90 @@
 {% load static tailwind_tags %}
-{% load static %}
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% tailwind_css %}
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit"> Submit</button>
-    </form>
-</body>
+  </head>
+  <body>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="bg-green-200 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    <div class="w-full flex items-center h-[100vh] justify-center gap-16">
+      <div class=" shadow-xl ">
+        <img src="{% static 'image/register.png' %}" alt="" class="h-[480px] w-[400px] object-cover">
+      </div>
+      <div >
+        <form method="POST" mrthod="post" class=" flex  flex-col shadow-xl  p-5 bg-gray-100">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Full name</label
+            >
+            <div class="">{{ form.username }}</div>
+          </div>
+          <div class="mb-4">
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Your password</label
+            >
+            <div class="">{{ form.email }}</div>
+          </div>
+          <div class="mb-4">
+            <label
+              for="repeat-password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Repeat password</label
+            >
+            <div class="">{{ form.password1 }}</div>
+          </div>
+          <div class="mb-4">
+            <label
+              for="repeat-password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Repeat password</label
+            >
+            <div class="">{{ form.password2 }}</div>
+          </div>
+          <div class="flex items-start mb-5">
+            <div class="flex items-center h-5">
+              <input
+                id="terms"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                required
+              />
+            </div>
+            <label
+              for="terms"
+              class="ms-2 text-sm font-medium text-gray-900 "
+              >I agree with the
+              <a href="#" class="text-blue-600 hover:underline dark:text-blue-500"
+                >terms and conditions</a
+              ></label
+            >
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >
+            Register new account
+          </button>
+          <div class=" mt-4 ms-2 text-lg font-medium text-gray-900">Have an Account ? <a href="{% url 'login' %}" class="text-blue-600 hover:underline">login Here</a></div>
+        </form>
+      </div>
+      
+    </div>
+  </body>
 </html>

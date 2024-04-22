@@ -10,7 +10,7 @@
     {% tailwind_css %}
 </head>
 <body>
-    <nav class="container w-[95%] ml-10 h-20 flex border-b items-center justify-around bg-white">
+    <nav class="container w-[95%] ml-10 h-16 flex border-b items-center justify-around bg-white p">
         <div class="logo">
             <img src="{% static 'image/logo.png' %}" alt="" class="h-10">
         </div>
@@ -18,13 +18,22 @@
             <input type="text" class=" outline-none border-none block focus:ring-blue-500 focus:border-blue-500 w-full rounded-xl  bg-gray-300 ml-5" placeholder="search item's here....">
             <i class="ri-search-line absolute ml-2 right-10 font-bold"></i>
         </div>
-        <div class="profile font-semibold text-lg m-3 flex">
-            <a href="#">LogIn</a>/
-            <a href="{% url "register" %}" class="">Register</a>
+        <div class="profile font-semibold text-lg m-3 flex gap-2">
+            {% if user.is_authenticated %} 
+            <a href="{% url 'profile' %}">profile</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit"><i class="ri-logout-box-line"></i></button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">LogIn</a>
+            {% endif %}
+            <a href="{% url 'product' %}">products</a>
+            
         </div>
-        <div class="cart flex flex-shrink justify-items-center items-center rounded-lg bg-blue-300 px-5 py-3 text-black cursor-pointer">
+        <div class="cart flex flex-shrink gap-3 items-center  rounded-lg bg-green-500 p-3 text-black cursor-pointer hover:scale-110 hover:bg-green-400">
             <i class="ri-shopping-cart-2-fill"></i>
-            <h3 class="font-semibold ">My Cart</h3>
+            <h3 class="font-medium text-white">My Cart</h3>
         </div>
     </nav>
 </body>

@@ -12,43 +12,48 @@
 <body>
     <div class="main container">
         <div class="container w-full  border-b-2">
-            <nav class=" flex justify-between items-center mx-8 mt-5 pb-3">
+            <nav class=" flex gap-8 items-center mx-5 mt-5 pb-3">
                 <div class="flex items-center relative w-[40%] ">
                     <input type="text" id="search" class="outline-none border-none block focus:ring-blue-500 focus:border-blue-500 w-full rounded-xl  bg-gray-200 p-3" placeholder="search products..">
                     <label for="search" class=" absolute right-0"><img src="{% static 'image/search.png' %}" alt="" class="h-10"></label>
                 </div>
-                <div class="catagories flex gap-10 items-center">
-                    <span class="text-3sm font-semibold">Home</span>
+                <div class="catagories flex gap-6 items-center">
+                    <a href="{% url "base" %}" class="text-3sm font-semibold">Home</a>
                     <ul class=" flex items-start gap-6 text-3sm font-semibold" >
-                        <li><a href="#">Appliances</a></li>
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Fashions</a></li>
-                        <li><a href="#">Grocery</a></li>
-                        <li><a href="#">Home & Funitures</a></li>
-                        <li><a href="#">Mobiles</a></li>
+                        <li class=" hover:text-green-500"><a href="#">Appliances</a></li>
+                        <li class=" hover:text-green-500"><a href="#">Electronics</a></li>
+                        <li class=" hover:text-green-500"><a href="#">Fashions</a></li>
+                        <li class=" hover:text-green-500 "><a href="#">Grocery</a></li>
+                        <li class=" hover:text-green-500 "><a href="#">Home&Funitures</a></li>
+                        <li class=" hover:text-green-500 "><a href="#">Mobiles</a></li>
+                        <li class=" hover:text-green-500"><a href="#">Watches</a></li>
+                        <li class=" hover:text-green-500 "><a href="#">SmartDevices</a></li>
                     </ul>
-                    <div class="cart flex flex-shrink justify-between items-center rounded-lg bg-blue-300 px-5 py-3 text-black cursor-pointer">
+                    <div class="cart flex flex-shrink justify-between items-center rounded-lg bg-green-500 p-3 text-black cursor-pointer hover:scale-110 hover:bg-green-400">
                         <i class="ri-shopping-cart-2-fill"></i>
-                        <h3 class="font-semibold ml-2">My Cart</h3>
+                        <h3 class=" text-sm font-semibold ml-2 text-white">Cart</h3>
                     </div>
                 </div>
             </nav>
         </div>
         <div class="flex w-full justify-between">
             <div class="  bg-red-500"></div>
-            <div class="container grid grid-cols-5 gap-7 mt-14 ml-10">
+            <div class="container grid grid-cols-5 gap-8 mt-14 ml-10">
                 {% for product in product_Detail %}
-                <a href="/{{ product.product_id }}" class=" p-4 shadow-lg flex flex-col w-60 items-center h-[380px] gap-12 px-3">
-                    <img src="{{ product.image }}" alt="" class="h-40 w-32 object-contain">
-                    <div class=" ">
-                        <h2 class="text-3sm font-semibold">{{ product.name }}</h2>
-                        <h3 class="text-2sm font-semibold">{{ product.price }}</h3>
-                        <div class="flex gap-3 mt-5">
-                            <button class="bg-blue-300 px-3 py-2 rounded-lg text-xs font-bold">Add to Cart</button>
-                            <button class="bg-blue-300 px-3 py-2 rounded-lg text-xs font-bold">Wishlist🤍 </button>
+                <div class="shadow-lg p-4 ">
+                    <a href="/{{ product.product_id }}" class="  flex flex-col w-64 items-center h-[280px] gap-12 px-3">
+                        <img src="{{ product.image }}" alt="" class="h-40 w-32 object-contain">
+                        <div class=" flex ">
+                            <h2 class="text-3sm font-semibold">{{ product.name }}</h2>
+                            <h3 class="text-2sm font-semibold">{{ product.price }}</h3>
                         </div>
+                    </a>
+                    <div class="flex gap-3 mt-5">
+                        <button class="bg-blue-300 px-3 py-2 rounded-lg text-xs font-bold"><i class="ri-shopping-cart-2-fill"></i></button>
+                        <button class="bg-blue-300 px-3 py-2 rounded-lg text-xs font-bold">Wishlist🤍 </button>
+                        <button class="bg-blue-300 px-3 py-2 rounded-lg text-xs font-bold">Buy now</button>
                     </div>
-                </a>
+                </div>
                 {% endfor %}
             </div>
         </div>

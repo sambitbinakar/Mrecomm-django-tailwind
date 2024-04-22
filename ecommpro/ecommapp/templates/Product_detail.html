@@ -17,11 +17,11 @@
                 <label for="search" class=" absolute right-0"><img src="{% static 'image/search.png' %}" alt="" class="h-10"></label>
             </div>
             <ul class=" flex items-center gap-9">
-                <li class=" text-lg font-semibold leading-tight "><a href="#">Home</a></li>
-                <li class=" text-lg font-semibold leading-tight "><a href="#">Products</a></li>
-                <li class=" text-lg font-semibold leading-tight "><a href="#">Profile</a></li>
+                <li class=" text-lg font-semibold leading-tight hover:text-green-400"><a href="{% url "base" %}">Home</a></li>
+                <li class=" text-lg font-semibold leading-tight hover:text-green-400 "><a href="{% url "product" %}">Products</a></li>
+                <li class=" text-lg font-semibold leading-tight hover:text-green-400"><a href="#">Profile</a></li>
             </ul>
-            <div class="cart flex flex-shrink justify-between items-center rounded-lg bg-blue-300 px-5 py-3 text-black cursor-pointer">
+            <div class="cart flex flex-shrink justify-between items-center rounded-lg bg-green-500 px-5 py-3 text-white cursor-pointer hover:scale-110 hover:bg-green-400">
                 <i class="ri-shopping-cart-2-fill"></i>
                 <h3 class="font-semibold ml-2">My Cart</h3>
             </div>

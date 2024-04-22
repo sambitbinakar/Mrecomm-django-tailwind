@@ -11,11 +11,12 @@ router.register(r'products',productViewset)
 urlpatterns = [
     path('navbar/', views.navbar, name='navbar'),
     path('home/',views.home ,name='home'),
+    path('register/',views.register ,name="register"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("profile/",views.profile , name='profile'),
     path('api/',include(router.urls)),
     path('api/<int:pk>',views.prductdelete.as_view(),name="update"),
-    path("accounts/", include("django.contrib.auth.urls")),
-    # path('register/',views.register ,name="register"),
-    path('base/', views.base ,name="base" ),
+    path("", views.base ,name="base" ),
     path('product/',views.productview,name='product'),
     path('<int:id>/',views.product_detail,name='product-detail')
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
