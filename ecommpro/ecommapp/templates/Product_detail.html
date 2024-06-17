@@ -38,6 +38,7 @@
                 <p class=" text-justify">{{ product_object.description }}</p>
             </div>
         </div>
+        <h2>tags:</h2><a href="#">{% for in product.tag.all %}{{ tag.name }}{% endfor %}</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,24 @@
+{% load static tailwind_tags %}
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vender-Register</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="">{{ venderform.username }}</div>
+        <div class="">{{ venderorm.email }}</div>
+        <div class="">{{ venderform.mobileno }}</div>
+        <div class="">{{ venderform.password1 }}</div>
+        <div class="">{{ venderform.password2 }}</div>
+        <div class="">{{ venderform.GSTNo }}</div>
+        <div class="">{{ venderform.PanCard_No }}</div>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

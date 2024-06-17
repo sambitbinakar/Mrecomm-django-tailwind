@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from rest_framework import viewsets,generics,status
-from .models import products
+from .models import *
 from .Serializers import productserializer
 from django.contrib.auth.decorators import login_required 
 from rest_framework.response import Response
@@ -10,15 +10,18 @@ from django.contrib.auth import authenticate ,login ,logout
 from django.contrib.auth.models import User
 
 # Create your views here.
+
+            
+
 def profile (request):
     return render(request,"profile.html")
 def Loginview (request):
     if request.user.is_authenticated:
-        return redirect("base")
+        return redirect("home")
     
     if request.method == "POST":
         username = request.POST.POST['username']
-        password = request.POSTPOST['password']
+        password = request.POST.POST['password']
 
         try:
             user = User.objects.get(username=username)
@@ -27,13 +30,11 @@ def Loginview (request):
             if user is not None:
                 login(request , user)
                 messages.success(request, "you are login succesfully")
-                return redirect("base")
+                return redirect("home")
             else:
                 messages.warning(request , "user does not exist")
         except:
             messages.warning(request  , f"user with {username} doesn't exist")
-
-        
 
     return render(request , "registration/login.html")
 
@@ -62,30 +63,28 @@ def navbar(request):
     return render(request , 'navbar.html')
 # rest api create
 class productViewset(viewsets.ModelViewSet):
-    queryset = products.objects.all()
+    queryset = product.objects.all()
     serializer_class=productserializer
 
     def delete(self,request, *args, **kwargs):
-        products.objects.all().delete()
+        product.objects.all().delete()
         return Response(status=status.HTTP_204_NO_content)
 # delete the data in serializer
 class prductdelete(generics.RetrieveUpdateDestroyAPIView):
-    queryset = products.objects.all()
+    queryset = product.objects.all()
     serializer_class=productserializer
     lookup_field = "pk"
 
-def base (request):
-    return render(request,'base.html')
  
 def home(request):
-    product_Detail = products.objects.all()
-    return render(request , 'home.html',{'product_Detail':product_Detail})
+    catagory = catagories.objects.all()
+    return render(request , 'home.html',{'catagory':catagory})
 
 def productview(request):
-    product_Detail = products.objects.all()
+    product_Detail = product.objects.all()
     return render(request,'product.html',{'product_Detail':product_Detail})
 
 
 def product_detail(request,id):
-    product_object = products.objects.get(product_id=id)
+    product_object = product.objects.get(product_id=id)
     return render(request,'product_detail.html',{'product_object':product_object})

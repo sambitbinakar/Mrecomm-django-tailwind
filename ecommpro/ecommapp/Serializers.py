@@ -1,10 +1,12 @@
 from rest_framework import serializers
-from .models import products
-from django.contrib.auth.models import User
+from .models import product
+from taggit.serializers import (TagListSerializerField,
+                                TaggitSerializer)
 
-class productserializer(serializers.HyperlinkedModelSerializer):
+class productserializer(TaggitSerializer,serializers.HyperlinkedModelSerializer):
+    tags = TagListSerializerField()
     class Meta:
-        model=products
+        model=product
         fields="__all__"
 
 

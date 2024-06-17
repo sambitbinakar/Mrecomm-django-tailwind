@@ -14,8 +14,8 @@ from pathlib import Path
 import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_URL = 'ecommap/static/image/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'ecommap/static/image/products/')
+MEDIA_URL = 'images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2tp_=rctk_g+y@a@9+j*fk6ici^q2e70j1-5bix50%tgs)*!al
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
     'rest_framework',
-    'ecommapp'
+    'ecommapp',
+    'vendor',
+    'taggit',
 ]
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
@@ -50,8 +52,7 @@ INTERNAL_IPS = [
 ]
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
-LOGIN_REDIRECT_URL = "base:home"
-LOGOUT_REDIRECT_URL = "base:login"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -140,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 JAZZMIN_SETTINGS = {
     "site_title": "Ecomm-Admin",
     "site_brand": "Mr-Ecomm",
-    "site_logo": "image/whitelogo.png",
+    # "site_logo": "image/whitelogo.png",
     "site_logo_classes": "img-circle",
     "site_icon": "/image/whitelogo.png",
     "welcome_sign": "Welcome to the MrEcomm",
@@ -159,5 +160,5 @@ JAZZMIN_SETTINGS = {
 }
 
 # AUTH_USER_MODEL = 'ecommapp.User'
-LOGIN_REDIRECT_URL='base'
+LOGIN_REDIRECT_URL='home'
 LOGOUT_REDIRECT_URL="login"
