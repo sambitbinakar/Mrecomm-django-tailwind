@@ -1,5 +1,25 @@
-<form method="post">
-    { csrf_token }
-    {{ productform.name }}
-    
-</form>
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+
+<body>
+    {% include "dashboard/side.html" %}
+    <div class="ml-80 px-8 py-10">
+        <form method="post">
+            {% csrf_token %}
+            {{ productform }}
+            <input type="submit">
+        </form>
+    </div>
+
+</body>
+
+</html>

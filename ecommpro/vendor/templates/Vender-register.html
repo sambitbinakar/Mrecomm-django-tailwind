@@ -13,12 +13,13 @@
         {% csrf_token %}
         <div class="">{{ venderform.username }}</div>
         <div class="">{{ venderorm.email }}</div>
+        <div class="">{{ venderform.image }}</div>
         <div class="">{{ venderform.mobileno }}</div>
         <div class="">{{ venderform.password1 }}</div>
         <div class="">{{ venderform.password2 }}</div>
         <div class="">{{ venderform.GSTNo }}</div>
         <div class="">{{ venderform.PanCard_No }}</div>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" class="border rounded-lg text-white bg-blue-700 font-semibold px-2 py-3 bg-">
     </form>
 </body>
 </html>

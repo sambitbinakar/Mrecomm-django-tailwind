@@ -8,7 +8,7 @@ from .forms import UserRegister
 from django.contrib import messages
 from django.contrib.auth import authenticate ,login ,logout
 from django.contrib.auth.models import User
-
+from vendor.views import *
 # Create your views here.
 
             

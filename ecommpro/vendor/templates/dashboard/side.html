@@ -1,0 +1,72 @@
+{% load static tailwind_tags %} {% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    {% tailwind_css %}
+  </head>
+
+  <body>
+    
+    <div class="fixed left-0 top-0 min-h-screen w-72 border shadow-lg">
+      <div
+        class=" w-full h-32 items-start  p-10  gap-5 bg-emerald-400 justify-center flex rounded-e-lg">
+        <img src="{% static 'image/logo.png' %}" alt="" class="w-20">
+      </div>
+      <div class="w-full text-xl font-semibold text-black">
+        <ul class="flex flex-col justify-center items-start gap-2">
+          <a
+            href="{% url "vendor:dashboard" %}"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-home-4-fill"></i> Dashbaord</a
+          >
+          <a
+            href="#"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-file-list-2-line"></i> product list</a
+          >
+          <a
+            href="{% url 'vendor:create-product' %}"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-add-box-fill"></i> Add product</a
+          >
+          <a
+            href="#"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-shopping-cart-2-fill"></i> Orders</a
+          >
+          <a
+            href="#"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-chat-4-fill"></i> Reviews</a
+          >
+        </ul>
+        <ul class="flex flex-col justify-center items-start gap-2 mt-8">
+          <a
+            href="#"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-user-fill"></i> Profile</a
+          >
+          <a
+            href="{% url 'vendor:vender_changePassword' %}"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-lock-unlock-fill"></i> change password</a
+          >
+          <a
+            href="{% url 'vendor:vender_logout' %}"
+            class="active:bg-green-200 px-6 py-3 text-start w-full rounded-md shadow-sm hover:bg-green-100"
+            ><i class="ri-arrow-left-circle-line"></i> Logout</a
+          >
+          
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -3,7 +3,7 @@ from shortuuid.django_fields import ShortUUIDField
 from django.contrib.auth.models import User
 from django.utils.html import mark_safe
 from  taggit.managers import TaggableManager
-
+from vendor.models import vender
 STATUS_CHOICE={
     ("process","Processed"),
     ("shipped","Shipped"),
@@ -37,21 +37,6 @@ class catagories(models.Model):
 class tags(models.Model):
     pass
 
-class vender(models.Model):
-    vid= ShortUUIDField(length=16,
-        max_length=20,
-        prefix="pr_",
-        alphabet="abcdefghigklm1234",
-        unique=True)
-    Name = models.CharField(max_length=200)
-    image =models.ImageField(upload_to=user_directory_path)
-    PanCard_No=models.CharField(max_length=200,default="ABCD23456")
-    GSTNo =models.CharField(max_length=200,default="ABCD23456")
-    Address = models.CharField(max_length=200)
-    mobileno = models.IntegerField(default="917869433434")
-    shipping_time = models.CharField(max_length=200)
-    authentic_rating = models.CharField(max_length=200)
-    days_return = models.CharField(max_length=200)
 
 
 class product(models.Model):
@@ -66,19 +51,26 @@ class product(models.Model):
     description = models.TextField(null=True,blank=True)
     price=models.IntegerField()
     saleprice = models.IntegerField()
-    date=models.DateTimeField(auto_now=True)
+    date=models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(null=True,blank=True)
-    image=models.CharField(max_length=200)
+    image=models.ImageField()
     sale = models.BooleanField(default=False)
     tags = TaggableManager(blank=True)
     status = models.BooleanField(default=True)
-    In_stock= models.BooleanField(default=True)
+    In_stock= models.IntegerField()
     featured =models.BooleanField(default= False)
 
 
     def get_percentage (self):
         new_price=(self.price/self.saleprice)*100
         return new_price
+    
+    def save(self, *args, **kwargs):
+        self.user = f"{self.vendor.Name} - {self.user}"
+        super().save(*args, **kwargs)
+    # def stocks (self):
+    #     new_stock=(self.In_stock-self.saleprice)
+    #     return new_stock
     
     def __str__(self):
         return self.name
